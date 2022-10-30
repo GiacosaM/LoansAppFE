@@ -1,1 +1,42 @@
 /* You can add global styles to this file, and also import other style files */
+
+html { height: 100%; }
+/* body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */
+
+body {
+    
+    background: #005AA7;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #FFFDE4, #005AA7);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #FFFDE4, #005AA7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.curved {
+    position: relative;
+    /* background: #2c3e50; */
+    background: #bdc3c7;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #2c3e50, #bdc3c7);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #2c3e50, #bdc3c7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+;
+    height: 10vh;
+    border-bottom-left-radius: 50% 44%;
+    border-bottom-right-radius: 50% 44%;
+}
+
+.title {
+    
+    padding:30px;
+    text-align: center;
+    color: white;
+    
+    
+    
+    
+}
+
+.container {
+    padding-top: 3rem;
+    margin: 0 20%;
+    width: auto;
+}
