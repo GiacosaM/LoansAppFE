@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, Output, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
@@ -27,6 +27,7 @@ export class ListadoCosasPrestadasComponent implements OnInit, AfterViewInit  {
   displayedColumns: string[] = ['fechaPrestamo','cosa', 'categoria','apellido','nombre','acciones'  ];
   dataSource = new MatTableDataSource<Prestamo>(listPrestamos);
   loading: boolean = false;
+ 
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;

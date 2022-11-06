@@ -15,6 +15,9 @@ import { ListadoCosasPrestadasComponent } from './components/listado-cosas-prest
 import { VerPrestamoComponent } from './components/ver-prestamo/ver-prestamo.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AgregarEditarPrestamoComponent } from './components/agregar-editar-prestamo/agregar-editar-prestamo.component';
+import { ListadoPersonasComponent } from './components/listado-personas/listado-personas.component';
+import { BuscarPersonaComponent } from './components/buscar-persona/buscar-persona.component';
+import { VerPersonaComponent } from './components/ver-persona/ver-persona.component';
 
 
 
@@ -27,7 +30,10 @@ import { AgregarEditarPrestamoComponent } from './components/agregar-editar-pres
     AgregarCategoriaComponent,
     ListadoCosasPrestadasComponent,
     VerPrestamoComponent,
-    AgregarEditarPrestamoComponent
+    AgregarEditarPrestamoComponent,
+    ListadoPersonasComponent,
+    BuscarPersonaComponent,
+    VerPersonaComponent
   ],
   imports: [
     BrowserModule,

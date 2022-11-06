@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 
 //Modulos
 import {ReactiveFormsModule} from '@angular/forms'
+import {FormsModule} from '@angular/forms'
+import { HttpClientModule } from '@angular/common/http';
 
 // Angular Material
 import {MatTableModule} from '@angular/material/table';
@@ -19,9 +21,19 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatSelectModule} from '@angular/material/select';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
+
+
+
 
 //Componentes 
 import { SpinnerComponent } from './spinner/spinner.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+
 
 
 
@@ -29,10 +41,12 @@ import { SpinnerComponent } from './spinner/spinner.component';
 
 @NgModule({
   declarations: [
-    SpinnerComponent
+    SpinnerComponent,
+    SidebarComponent
   ],
   imports: [
     CommonModule,
+    HttpClientModule,
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
@@ -48,12 +62,20 @@ import { SpinnerComponent } from './spinner/spinner.component';
     MatGridListModule,
     MatSelectModule,
     ReactiveFormsModule,
+    MatAutocompleteModule,
+    FormsModule,
+    MatSidenavModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    
+    
     
     
     
   ],
   exports: [
     CommonModule,
+    HttpClientModule,
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
@@ -69,7 +91,14 @@ import { SpinnerComponent } from './spinner/spinner.component';
     MatProgressSpinnerModule,
     MatGridListModule,
     MatSelectModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatAutocompleteModule,
+    SidebarComponent,
+    FormsModule,
+    MatSidenavModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    
     
     
   ]

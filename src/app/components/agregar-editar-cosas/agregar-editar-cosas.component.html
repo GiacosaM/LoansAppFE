@@ -1,1 +1,41 @@
-<p>agregar-editar-cosas works!</p>
+<div class="etiqueta">
+    <h1 > Agregar Nuevo Objeto</h1>
+</div>
+<div class="container">
+    <app-spinner *ngIf="loading"></app-spinner>
+    <mat-card class="card">
+        <mat-card-subtitle> Alta de Objetos</mat-card-subtitle>
+        <form [formGroup]="form" (ngSubmit)="agregarPrestamo()">
+            <mat-grid-list cols="2" rowHeight="80px">
+    
+                <mat-grid-tile>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Detalle de Objeto</mat-label>
+                        <input formControlName="detalle" autocomplete="off" matInput>
+                    </mat-form-field>
+                </mat-grid-tile>
+                
+                <mat-grid-tile>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Categoria</mat-label>
+                        <input formControlName="categoria" autocomplete="off" matInput>
+                    </mat-form-field>
+                </mat-grid-tile>
+
+                <mat-grid-tile [colspan] ="2">
+                    <button type="submit" [disabled]="form.invalid"class="btnAceptar" mat-raised-button color="primary">Aceptar</button>
+                    <button routerLink="/agregarPrestamo" mat-raised-button>Volver</button>
+                </mat-grid-tile>
+
+            </mat-grid-list>
+            
+            <span class="alerta" *ngIf="campoEsValido('detalle')">
+                Debe ingresar un nombre de Objeto alido
+            </span>
+            <span class="alerta" *ngIf="campoEsValido('categoria')">
+                Debe seleccionar una categoria
+            </span>
+            
+        </form>
+    </mat-card>
+</div>

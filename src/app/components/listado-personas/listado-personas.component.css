@@ -38,3 +38,11 @@ td, th {
 .search {
     cursor: pointer;
 }
+
+.center {
+    margin-top: 2rem;
+    display: grid;
+    place-items: center;
+    
+
+}

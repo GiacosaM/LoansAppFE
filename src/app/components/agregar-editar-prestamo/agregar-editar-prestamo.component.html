@@ -1,9 +1,6 @@
-<section class="curved">
-    <div class="title">
-        <h1> Agregar Nuevo Prestamo</h1>
-    </div>
-</section>
-
+<div class="etiqueta">
+    <h1 > Agregar Nuevo Prestamo</h1>
+</div>
 
 <div class="container">
     <app-spinner *ngIf="loading"></app-spinner>
@@ -13,50 +10,80 @@
             <mat-grid-list cols="2" rowHeight="80px">
 
                 <mat-grid-tile [colspan] ="2">
-                    Fecha del Prestamo
-                </mat-grid-tile>
-                
-                <mat-grid-tile>
-                    <mat-form-field appearance="outline">
-                        <mat-label>Objeto Prestado</mat-label>
-                        <input formControlName="objeto" autocomplete="off" matInput>
-                    </mat-form-field>
+                    <mat-card class="date">Fecha de Prestamo: <strong>{{date | date: 'd/M/yyyy'}} </strong></mat-card>
+                    
                 </mat-grid-tile>
                 
                 <mat-grid-tile>
                     <mat-form-field appearance="fill">
+                        <mat-label>Objeto</mat-label>
+                        <mat-select   formControlName="objeto">
+                            <mat-option *ngFor=" let objeto of objetos" [value]="objeto">{{objeto}}</mat-option>
+                            
+                        
+                        </mat-select>
+                    </mat-form-field>
+                </mat-grid-tile>
+                
+                
+                
+                <mat-grid-tile>
+                    <mat-form-field appearance="fill">
                         <mat-label>Categoria</mat-label>
-                        <mat-select formControlName="categoria">
-                            <mat-option value="1">Herramientas</mat-option>
-                            <mat-option value="2">Ropa</mat-option>
-                            <mat-option value="3">Libros</mat-option>
-                            <mat-option value="4">Tupper</mat-option>
-                            <mat-option value="5">Cd</mat-option>
-
+                        <mat-select   formControlName="categoria">
+                            <mat-option *ngFor=" let categoria of categorias" [value]="categoria">{{categoria}}</mat-option>
+                            
+                        
                         </mat-select>
                     </mat-form-field>
                 </mat-grid-tile>
 
-                <mat-grid-tile >
-                    <mat-form-field appearance="outline">
-                        <mat-label>Nombre</mat-label>
-                        <input formControlName="nombre" autocomplete="off" matInput>
-                    </mat-form-field>
-                </mat-grid-tile>
                 <mat-grid-tile>
-                    <mat-form-field appearance="outline">
-                        <mat-label>Apellido</mat-label>
-                        <input formControlName="apellido" autocomplete="off" matInput>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Nombre y Apellido</mat-label>
+                        <input   
+                                type="text"
+                                placeholder="Seleccionar.."
+                                aria-label="Number"
+                                matInput
+                                
+                                [matAutocomplete]="auto"
+                                formControlName="nombre">
+                        <mat-autocomplete  autoActiveFirstOption #auto="matAutocomplete">
+                        <mat-option  *ngFor="let option of filteredOptions | async" [value]="option">
+                            {{option}}
+                        </mat-option>
+                        </mat-autocomplete>
                     </mat-form-field>
                 </mat-grid-tile>
-                
 
-                <mat-grid-tile [colspan] ="2">
-                    <button type="submit" class="btnAceptar" mat-raised-button color="primary">Aceptar</button>
-                    <button routerLink="/listadoPrestamos" mat-raised-button>Volver</button>
+                <mat-grid-tile >
+                
+                    <button routerLink="/agregarObjeto" class="agregar" mat-raised-button color="primary">Agregar Objeto</button>
+                    <button routerLink="/listadoPersona" class="agregar" mat-raised-button color="primary"> Agenda Personas</button>
                     
                 </mat-grid-tile>
+                
+                <mat-grid-tile [colspan] ="2">
+                    <button type="submit" [disabled]="form.invalid"class="btnAceptar" mat-raised-button color="primary">Aceptar</button>
+                    <button routerLink="/listadoPrestamos" mat-raised-button>Volver</button>
+                </mat-grid-tile>
+
+            
+
+
             </mat-grid-list>
+            
+            <span class="alerta" *ngIf="campoEsValido('objeto')">
+                Debe ingresar un Objeto 
+            </span>
+            <span class="alerta" *ngIf="campoEsValido('categoria')">
+                Debe vincular el objeto a una categoria 
+            </span>
+            <span class="alerta" *ngIf="campoEsValido('nombre')">
+                Debe seleccionar una persona 
+            </span>
+            
         </form>
     </mat-card>
 </div>

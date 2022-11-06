@@ -1,7 +1,7 @@
 export interface Prestamo {
     id?:number,
-    nombre: string,
-    apellido: string,
+    nombre:string,
+    apellido:string,
     cosa:string,
     categoria:string,
     fechaPrestamo: string,

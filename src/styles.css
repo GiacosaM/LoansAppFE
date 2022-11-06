@@ -29,14 +29,30 @@ body {
     padding:30px;
     text-align: center;
     color: white;
+        
+}
+.cerrarSesion {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+
     
     
+}
+.container {
+    padding-top: 0.5rem;
+    margin: 0 20%;
+    width: auto;
+}
+
+.etiqueta {
+    
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    display: grid;
+    place-items: center;
     
     
 }
 
-.container {
-    padding-top: 3rem;
-    margin: 0 20%;
-    width: auto;
-}
+

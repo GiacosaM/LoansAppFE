@@ -1,6 +1,8 @@
 export interface Persona {
-    id?:number,
-    nombre: string,
-    apellido: string,
-    mail: string,
+    id:       number;
+    name:     string;
+    lastname: string;
+    email:    string;
+    telefono: string;
+    loans:    any[];
 }
