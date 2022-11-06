@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Persona } from 'src/app/interfaces/persona';
+import { PersonaService } from '../../services/persona.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-agregar-editar-persona',
@@ -13,7 +17,11 @@ export class AgregarEditarPersonaComponent implements OnInit {
   
   
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, 
+    private _PersonaService: PersonaService,
+    private _snackBar: MatSnackBar,
+    private router: Router ) {
+
     this.form= this.fb.group({
       nombre: ['', Validators.required],
       apellido: ['', Validators.required],
@@ -33,9 +41,22 @@ export class AgregarEditarPersonaComponent implements OnInit {
     && this.form.get(campo)?.touched
   }
 
-  agregarPrestamo() {
-    console.log("Agregando persona")
+  agregarPersona() {
+    const persona: Persona = {
+      name: this.form.value.nombre,
+      lastname: this.form.value.apellido,
+      email: this.form.value.mail,
+      telefono: this.form.value.telefono
+    }
+
+    this._PersonaService.addPersona(persona).subscribe(data => {
+
+      this._PersonaService.mensajeExito('La Persona Fue agregada Exitosamente');
+      this.router.navigate(['/listadoPersona']);
+    })
   }
+
+  
 
 }
 

@@ -6,6 +6,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { Persona } from '../../interfaces/persona';
 import { PersonaService } from '../../services/persona.service';
+import { ThisReceiver } from '@angular/compiler';
 
 
 @Component({
@@ -64,20 +65,17 @@ export class ListadoPersonasComponent implements OnInit, AfterViewInit  {
     
     }
   
-    eliminarPersona(mensaje: string) {
+    eliminarPersona(id: number) {
       this.loading = true;
-  
-      setTimeout(() => {
-        this.loading = false;
-        this._snackBar.open(mensaje, '', {
-          duration: 2000,
-          horizontalPosition: 'right',
-        });
-      }, 3000);
-  
-      
+
+      this._personaService.deletePersona(id).subscribe(()=> {
+          this._personaService.mensajeExito('El registro fue eliminado correctamente');
+          this.loading = false;
+          this.obtenerPersonas();
+      });      
     }
-  
+    
+    
   }
   
 

@@ -36,7 +36,7 @@
             <td mat-cell *matCellDef="let element">  
                 <mat-icon routerLink="/verPersona/{{element.id}}" class="search" matTooltip="Ver" fontIcon="search"> </mat-icon>
                 <mat-icon routerLink="/editarPersona/{{element.id}}" class="edit" matTooltip="Editar" fontIcon="edit"> </mat-icon>
-                <mat-icon (click)="eliminarPersona('La Persona fue eliminada con Exito')"  class="delete" matTooltip="Borrar" fontIcon="delete"> </mat-icon>
+                <mat-icon (click)="eliminarPersona(element.id)"  class="delete" matTooltip="Borrar" fontIcon="delete"> </mat-icon>
                 
                 
             </td>
